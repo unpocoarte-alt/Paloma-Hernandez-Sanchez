@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paloma Hernández Sánchez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #0b2545;
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px !important;
+            font-weight: 400;
+        }
+        * {
+            font-size: 12px !important;
+            text-transform: none !important;
+            text-decoration: none !important;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            padding: 10vw 8vw;
+        }
+        .left-column {
+            width: 35%;
+            padding-right: 40px;
+            flex-shrink: 0;
+        }
+        .right-column {
+            width: 65%;
+            text-align: right;
+        }
+        .bio {
+            margin-top: 15px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            opacity: 0.5;
+        }
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .nav-links a {
+            color: #0b2545;
+            cursor: pointer;
+            border-bottom: 1px solid #0b2545 !important;
+            align-self: flex-start;
+            padding-bottom: 2px;
+        }
+        .contact {
+            margin-top: 20px;
+        }
+        .content-panel {
+            display: none;
+            line-height: 1.6;
+        }
+        .content-panel.active {
+            display: block;
+        }
+        .split-panel {
+            display: flex;
+            gap: 4vw;
+            width: 100%;
+        }
+        .split-column {
+            flex: 1;
+            text-align: right;
+        }
+        .italic-title {
+            font-style: italic !important;
+        }
+        .bold-year {
+            font-weight: 700 !important;
+        }
+        .gallery-title {
+            cursor: pointer;
+            font-style: italic !important;
+        }
+        .gallery-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out;
+        }
+        .gallery-wrapper.open {
+            max-height: 2000px;
+            margin-top: 15px;
+        }
+        .gallery-slides {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            align-items: center; /* Centra las imágenes verticalmente en el marco */
+        }
+        .gallery-slides img {
+            flex: 0 0 100%;
+            width: 100%;
+            max-height: 65vh; /* Limita la altura máxima al 65% de la pantalla */
+            height: auto;
+            object-fit: contain;
+        }
+        .gallery-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+        .gallery-controls span {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div>Paloma Hernández Sánchez</div>
+            
+            <div class="bio">
+                silence folded into matter,<br>
+                tracing the edges of time and space.
+            </div>
+
+            <div class="nav-links">
+                <a onclick="showPanel('cv')">CV</a>
+                <a onclick="showPanel('projects')">Projects</a>
+                <a onclick="showPanel('last-works')">Last works</a>
+            </div>
+
+            <div class="contact">
+                contact: <a href="mailto:unpocoarte@gmail.com">unpocoarte@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            
+            <div id="cv" class="content-panel active">
+                <div class="split-panel">
+                    <!-- Columna izquierda vacía para empujar el texto a la derecha -->
+                    <div class="split-column"></div>
+                    
+                    <!-- Columna derecha con el contenido del CV -->
+                    <div class="split-column">
+                        Gallery Assistant, KLEMM´S Galerie, Berlin, 2026<br>
+                        Gallery Assistant, Verena Kerfin Gallery, Berlin, 2026<br>
+                        Exhibition Coordinator , Atelier Canyamelar, Valencia, 2023-2025<br>
+                        Customer Service and Sales Training, Valencia, 2022<br>
+                        Conflict Resolution Training for Middle Management, Valencia, 2022<br>
+                        BFA, Politecnic University of Valencia, 2021-2025<br>
+                        Course in Visual Arts, Espacio REA, Buenos Aires, 2019<br>
+                        <br><br>
+                        -<br><br>
+                        solo exhibitions:<br>
+                        <span class="bold-year">2026</span><br>
+                        <span class="italic-title">Silencios Compartidos</span>, Atelier Canyamelar, Valencia, February-April<br>
+                        <br>
+                        <span class="bold-year">2024</span><br>
+                        <span class="italic-title">TU(n)EL</span>, Polytechnic University of Valencia, December<br>
+                        <br>
+                        <span class="bold-year">2023</span><br>
+                        <span class="italic-title">Mar Blanco</span>, Atelier Canyamelar, Valencia, October<br>
+                        <br><br>
+                        group exhibitions:<br>
+                        <span class="bold-year">2024</span><br>
+                        <span class="italic-title">Buidar Plenant</span>, Riba-roja de Túria, Valencia, July (<a href="catalogoBuidarPlenant.pdf" target="_blank" style="color: #0b2545; border-bottom: 1px solid #0b2545 !important;">catalog</a>)<br>
+                        <span class="italic-title">Oh! My Bag</span>, Royal University of Bhutan, April<br>
+                        <span class="italic-title">Oh! My Mind</span>, Thammasat University, March<br>
+                        <br>
+                        <span class="bold-year">2023</span><br>
+                        <span class="italic-title">Cuerpos, un nexo al mundo</span>, Chiva, Valencia, February<br>
+                        <br><br>
+                        -<br><br>
+                        skills:<br>
+                        custom web coding, adobe creative cloud, spatial thinking & installations, metalwork, ceramics, painting, among others<br>
+                        <br><br>
+                        soft skills:<br>
+                        strong communication, responsible and honest work ethic, passionate about collaborative projects and continuous research
+                    </div>
+                </div>
+            </div>
+
+            <div id="projects" class="content-panel">
+                ZUMO Cultural Agenda - Founder & Curator, Valencia, 2026<br><br>
+                An independent cultural platform and agenda born from the need to connect contemporary art with society. ZUMO acts as a bridge to promote local culture, foster active community engagement, and give a visible voice to emerging artists in Valencia.<br><br>
+                <a href="https://www.zumovlc.com" target="_blank" style="color: #0b2545; border-bottom: 1px solid #0b2545 !important;">www.zumovlc.com</a>
+            </div>
+
+            <div id="last-works" class="content-panel">
+                <div class="split-panel">
+                    <div class="split-column">
+                        text<br><br>
+                        <a href="https://unpocoarte.substack.com/p/nota-al-arte-contemporaneo-en-berlin?r=8of61w&utm_campaign=post-expanded-share&utm_medium=web" target="_blank" style="color: #0b2545; border-bottom: 1px solid #0b2545 !important;">Arqueologías del tránsito: El sujeto, el margen y la fricción del contexto</a><br><br>
+                        <a href="https://unpocoarte.substack.com/p/nota-de-instalacion?r=8of61w&utm_campaign=post-expanded-share&utm_medium=web" target="_blank" style="color: #0b2545; border-bottom: 1px solid #0b2545 !important;">nota de sala para COPLA</a>
+                    </div>
+                    <div class="split-column">
+                        others<br><br>
+                        <div onclick="toggleGallery('tunel-wrapper')" class="gallery-title">TU(n)EL</div>
+                        
+                        <div id="tunel-wrapper" class="gallery-wrapper">
+                            <div id="tunel-slides" class="gallery-slides">
+                                <img src="tunel/1.jpg" alt="TU(n)EL vista 1">
+                                <img src="tunel/2.jpg" alt="TU(n)EL vista 2">
+                                <img src="tunel/3.jpg" alt="TU(n)EL vista 3">
+                                <img src="tunel/4.jpg" alt="TU(n)EL vista 4">
+                                <img src="tunel/5.jpg" alt="TU(n)EL vista 5">
+                                <img src="tunel/6.jpg" alt="TU(n)EL vista 6">
+                                <img src="tunel/7.jpg" alt="TU(n)EL vista 7">
+                                <img src="tunel/8.jpg" alt="TU(n)EL vista 8">
+                                <img src="tunel/9.jpg" alt="TU(n)EL vista 9">
+                                <img src="tunel/10.jpg" alt="TU(n)EL vista 10">
+                                <img src="tunel/11.jpg" alt="TU(n)EL vista 11">
+                                <img src="tunel/12.jpg" alt="TU(n)EL vista 12">
+                                <img src="tunel/13.jpg" alt="TU(n)EL vista 13">
+                                <img src="tunel/14.jpg" alt="TU(n)EL vista 14">
+                                <img src="tunel/15.jpg" alt="TU(n)EL vista 15">
+                                <img src="tunel/16.jpg" alt="TU(n)EL vista 16">
+                                <img src="tunel/17.jpg" alt="TU(n)EL vista 17">
+                                <img src="tunel/18.jpg" alt="TU(n)EL vista 18">
+                                <img src="tunel/19.jpg" alt="TU(n)EL vista 19">
+                                <img src="tunel/20.jpg" alt="TU(n)EL vista 20">
+                                <img src="tunel/21.jpg" alt="TU(n)EL vista 21">
+                                <img src="tunel/22.jpg" alt="TU(n)EL vista 22">
+                                <img src="tunel/23.jpg" alt="TU(n)EL vista 23">
+                                <img src="tunel/24.jpg" alt="TU(n)EL vista 24">
+                                <img src="tunel/25.jpg" alt="TU(n)EL vista 25">
+                            </div>
+                            <div class="gallery-controls">
+                                <span onclick="slideGallery('tunel-slides', -1)">prev</span> 
+                                <span onclick="slideGallery('tunel-slides', 1)">next</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function showPanel(panelId) {
+            document.querySelectorAll('.content-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            document.getElementById(panelId).classList.add('active');
+        }
+
+        function toggleGallery(id) {
+            const gallery = document.getElementById(id);
+            gallery.classList.toggle('open');
+        }
+
+        function slideGallery(id, direction) {
+            const container = document.getElementById(id);
+            const moveAmount = container.clientWidth; // Calcula el ancho exacto de una foto
+            container.scrollBy({ left: moveAmount * direction, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
